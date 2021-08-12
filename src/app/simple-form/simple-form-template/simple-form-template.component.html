@@ -1,0 +1,55 @@
+<h1>Simple Form (template-driven)</h1>
+
+<mat-card>
+  <form (ngSubmit)="onSubmit()" #simpleForm="ngForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        required
+        name="name"
+        [(ngModel)]="model.name"
+        #name="ngModel"
+      />
+      <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birth date</mat-label>
+      <input
+        matInput
+        required
+        name="birthdate"
+        [matDatepicker]="picker"
+        [(ngModel)]="model.birthdate"
+        #birthdate="ngModel"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="birthdate.invalid">You must enter a value</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Favorite color</mat-label>
+      <mat-select name="favoriteColor" [(ngModel)]="model.favoriteColor">
+        <mat-option *ngFor="let color of colors" [value]="color">{{
+          color
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="loading || !simpleForm.form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>Form model (JSON)</h2>
+
+<pre
+  >{{ model | json }}
+</pre>
