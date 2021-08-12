@@ -15,7 +15,7 @@ import { SimpleFormNgxsComponent } from './simple-form/simple-form-ngxs/simple-f
 import { SimpleFormNgxsReactiveComponent } from './simple-form/simple-form-ngxs-reactive/simple-form-ngxs-reactive.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

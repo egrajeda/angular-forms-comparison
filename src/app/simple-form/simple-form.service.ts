@@ -12,6 +12,7 @@ export interface SimpleFormSaveResponse {
 })
 export class SimpleFormService {
   save(form: SimpleForm): Observable<SimpleFormSaveResponse> {
+    console.log("Save:", form);
     return of({
       id: 1,
     }).pipe(delay(1000));
