@@ -1,0 +1,62 @@
+<h1>Simple Form (NGXS with form-plugin)</h1>
+
+<mat-card>
+  <form
+    ngxsForm="simpleFormNgxsPlugin.form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput required name="name" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birth date</mat-label>
+      <input
+        matInput
+        required
+        name="birthdate"
+        formControlName="birthdate"
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="birthdate?.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Favorite color</mat-label>
+      <mat-select name="favoriteColor" formControlName="favoriteColor">
+        <mat-option *ngFor="let color of colors" [value]="color">{{
+          color
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="(loading$ | async) || !form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>Form model (JSON)</h2>
+
+<pre
+  >{{ model$ | async | json }}
+</pre>
+
+<h2>Form state (JSON)</h2>
+
+<pre
+  >{{ form$ | async | json }}
+</pre>

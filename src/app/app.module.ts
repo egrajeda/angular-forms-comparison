@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,10 +12,14 @@ import { AppComponent } from './app.component';
 import { SimpleFormReactiveComponent } from './simple-form/simple-form-reactive/simple-form-reactive.component';
 import { SimpleFormTemplateComponent } from './simple-form/simple-form-template/simple-form-template.component';
 import { SimpleFormNgxsComponent } from './simple-form/simple-form-ngxs/simple-form-ngxs.component';
-import { SimpleFormNgxsReactiveComponent } from './simple-form/simple-form-ngxs-reactive/simple-form-ngxs-reactive.component';
+import { SimpleFormNgxsPluginComponent } from './simple-form/simple-form-ngxs-plugin/simple-form-ngxs-plugin.component';
+import { SimpleFormNgxsPluginState } from './simple-form/simple-form-ngxs-plugin/simple-form-ngxs-plugin.state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SimpleFormReactiveComponent,
     SimpleFormTemplateComponent,
     SimpleFormNgxsComponent,
-    SimpleFormNgxsReactiveComponent,
+    SimpleFormNgxsPluginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    NgxsModule.forRoot([SimpleFormNgxsPluginState]),
+    NgxsFormPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
