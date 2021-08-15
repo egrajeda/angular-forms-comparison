@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { SimpleFormNgxsState } from 'src/app/simple-form/simple-form-ngxs/simple-form-ngxs.state';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
-    NgxsModule.forRoot([SimpleFormNgxsPluginState]),
+    NgxsModule.forRoot([SimpleFormNgxsState, SimpleFormNgxsPluginState]),
     NgxsFormPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,

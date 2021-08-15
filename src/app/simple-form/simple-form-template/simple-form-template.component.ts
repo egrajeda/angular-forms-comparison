@@ -18,7 +18,7 @@ export class SimpleFormTemplateComponent {
   };
   loading = false;
 
-  constructor(private readonly simpleFormService: SimpleFormService, private snackBar: MatSnackBar) {}
+  constructor(private readonly simpleFormService: SimpleFormService, private readonly snackBar: MatSnackBar) {}
 
   onSubmit(): void {
     this.loading = true;

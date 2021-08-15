@@ -29,7 +29,7 @@ export class SimpleFormReactiveComponent {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly simpleFormService: SimpleFormService,
-    private snackBar: MatSnackBar
+    private readonly snackBar: MatSnackBar
   ) {}
 
   onSubmit(): void {

@@ -41,7 +41,7 @@ export class SimpleFormNgxsPluginComponent {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly store: Store,
-    private snackBar: MatSnackBar
+    private readonly snackBar: MatSnackBar
   ) {}
 
   onSubmit(): void {
