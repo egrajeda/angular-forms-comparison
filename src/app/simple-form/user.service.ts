@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { SimpleForm } from 'src/app/simple-form/simple-form';
+import { User } from 'src/app/simple-form/user';
 
-export interface SimpleFormSaveResponse {
+export interface UserSaveResponse {
   id: number;
 }
 
 @Injectable({
   providedIn: 'root',
 })
-export class SimpleFormService {
-  save(form: SimpleForm): Observable<SimpleFormSaveResponse> {
-    console.log("Save:", form);
+export class UserService {
+  save(user: User): Observable<UserSaveResponse> {
+    console.log('Save:', user);
     return of({
       id: 1,
     }).pipe(delay(1000));

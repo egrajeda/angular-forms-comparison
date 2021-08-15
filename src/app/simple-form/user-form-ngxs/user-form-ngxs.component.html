@@ -1,14 +1,15 @@
-<h1>Simple Form (template)</h1>
+<h1>Simple Form (NGXS)</h1>
 
 <mat-card>
-  <form (ngSubmit)="onSubmit()" #simpleForm="ngForm">
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input
         matInput
         required
         name="name"
-        [(ngModel)]="model.name"
+        [ngModel]="(user$ | async)?.name"
+        (ngModelChange)="setName($event)"
         #name="ngModel"
       />
       <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
@@ -20,7 +21,8 @@
         required
         name="birthdate"
         [matDatepicker]="picker"
-        [(ngModel)]="model.birthdate"
+        [ngModel]="(user$ | async)?.birthdate"
+        (ngModelChange)="setBirthdate($event)"
         #birthdate="ngModel"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -29,7 +31,11 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Favorite color</mat-label>
-      <mat-select name="favoriteColor" [(ngModel)]="model.favoriteColor">
+      <mat-select
+        name="favoriteColor"
+        [ngModel]="(user$ | async)?.favoriteColor"
+        (ngModelChange)="setFavoriteColor($event)"
+      >
         <mat-option *ngFor="let color of colors" [value]="color">{{
           color
         }}</mat-option>
@@ -40,7 +46,7 @@
         mat-raised-button
         type="submit"
         color="primary"
-        [disabled]="loading || !simpleForm.form.valid"
+        [disabled]="(loading$ | async) || !userForm.form.valid"
       >
         Submit
       </button>
@@ -48,8 +54,8 @@
   </form>
 </mat-card>
 
-<h2>Form model (JSON)</h2>
+<h2>User (JSON)</h2>
 
 <pre
-  >{{ model | json }}
+  >{{ user$ | async | json }}
 </pre>

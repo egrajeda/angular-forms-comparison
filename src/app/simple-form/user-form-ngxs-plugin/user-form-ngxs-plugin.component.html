@@ -1,9 +1,9 @@
-<h1>Simple Form (NGXS with form-plugin)</h1>
+<h1>User Form (NGXS with form-plugin)</h1>
 
 <mat-card>
   <form
-    ngxsForm="simpleFormNgxsPlugin.form"
-    [formGroup]="form"
+    ngxsForm="userFormNgxsPlugin.userForm"
+    [formGroup]="userForm"
     (ngSubmit)="onSubmit()"
   >
     <mat-form-field>
@@ -41,7 +41,7 @@
         mat-raised-button
         type="submit"
         color="primary"
-        [disabled]="(loading$ | async) || !form.valid"
+        [disabled]="(loading$ | async) || !userForm.valid"
       >
         Submit
       </button>
@@ -49,14 +49,14 @@
   </form>
 </mat-card>
 
-<h2>Form model (JSON)</h2>
+<h2>User (JSON)</h2>
 
 <pre
-  >{{ model$ | async | json }}
+  >{{ user$ | async | json }}
 </pre>
 
 <h2>Form state (JSON)</h2>
 
 <pre
-  >{{ form$ | async | json }}
+  >{{ userFormState$ | async | json }}
 </pre>

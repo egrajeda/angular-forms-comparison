@@ -1,16 +1,17 @@
-<h1>Simple Form (reactive)</h1>
+<h1>User Form (template-based)</h1>
 
 <mat-card>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input
         matInput
         required
         name="name"
-        formControlName="name"
+        [(ngModel)]="user.name"
+        #name="ngModel"
       />
-      <mat-error *ngIf="name?.errors?.required">You must enter a value</mat-error>
+      <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Birth date</mat-label>
@@ -18,16 +19,17 @@
         matInput
         required
         name="birthdate"
-        formControlName="birthdate"
         [matDatepicker]="picker"
+        [(ngModel)]="user.birthdate"
+        #birthdate="ngModel"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="birthdate?.errors?.required">You must enter a value</mat-error>
+      <mat-error *ngIf="birthdate.invalid">You must enter a value</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Favorite color</mat-label>
-      <mat-select name="favoriteColor" formControlName="favoriteColor">
+      <mat-select name="favoriteColor" [(ngModel)]="user.favoriteColor">
         <mat-option *ngFor="let color of colors" [value]="color">{{
           color
         }}</mat-option>
@@ -38,7 +40,7 @@
         mat-raised-button
         type="submit"
         color="primary"
-        [disabled]="loading || !form.valid"
+        [disabled]="loading || !userForm.form.valid"
       >
         Submit
       </button>
@@ -46,8 +48,8 @@
   </form>
 </mat-card>
 
-<h2>Form model (JSON)</h2>
+<h2>User (JSON)</h2>
 
 <pre
-  >{{form.value | json}}
+  >{{ user | json }}
 </pre>

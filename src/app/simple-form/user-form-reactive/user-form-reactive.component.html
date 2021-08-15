@@ -1,18 +1,13 @@
-<h1>Simple Form (NGXS)</h1>
+<h1>User Form (reactive)</h1>
 
 <mat-card>
-  <form (ngSubmit)="onSubmit()" #simpleForm="ngForm">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input
-        matInput
-        required
-        name="name"
-        [ngModel]="(model$ | async)?.name"
-        (ngModelChange)="setName($event)"
-        #name="ngModel"
-      />
-      <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
+      <input matInput required name="name" formControlName="name" />
+      <mat-error *ngIf="name?.errors?.required"
+        >You must enter a value</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <mat-label>Birth date</mat-label>
@@ -20,22 +15,18 @@
         matInput
         required
         name="birthdate"
+        formControlName="birthdate"
         [matDatepicker]="picker"
-        [ngModel]="(model$ | async)?.birthdate"
-        (ngModelChange)="setBirthdate($event)"
-        #birthdate="ngModel"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="birthdate.invalid">You must enter a value</mat-error>
+      <mat-error *ngIf="birthdate?.errors?.required"
+        >You must enter a value</mat-error
+      >
     </mat-form-field>
     <mat-form-field>
       <mat-label>Favorite color</mat-label>
-      <mat-select
-        name="favoriteColor"
-        [ngModel]="(model$ | async)?.favoriteColor"
-        (ngModelChange)="setFavoriteColor($event)"
-      >
+      <mat-select name="favoriteColor" formControlName="favoriteColor">
         <mat-option *ngFor="let color of colors" [value]="color">{{
           color
         }}</mat-option>
@@ -46,7 +37,7 @@
         mat-raised-button
         type="submit"
         color="primary"
-        [disabled]="(loading$ | async) || !simpleForm.form.valid"
+        [disabled]="loading || !userForm.valid"
       >
         Submit
       </button>
@@ -54,8 +45,8 @@
   </form>
 </mat-card>
 
-<h2>Form model (JSON)</h2>
+<h2>User (JSON)</h2>
 
 <pre
-  >{{ model$ | async | json }}
+  >{{ userForm.value | json }}
 </pre>

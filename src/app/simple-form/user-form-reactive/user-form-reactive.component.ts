@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs/operators';
-import { SimpleForm } from 'src/app/simple-form/simple-form';
-import { SimpleFormService } from 'src/app/simple-form/simple-form.service';
+import { User } from 'src/app/simple-form/user';
+import { UserService } from 'src/app/simple-form/user.service';
 
 @Component({
-  selector: 'app-simple-form-reactive',
-  templateUrl: './simple-form-reactive.component.html',
+  selector: 'app-user-form-reactive',
+  templateUrl: './user-form-reactive.component.html',
 })
-export class SimpleFormReactiveComponent {
+export class UserFormReactiveComponent {
   readonly colors = ['Red', 'Green', 'Blue'];
-  readonly form = this.formBuilder.group({
+  readonly userForm = this.formBuilder.group({
     name: [''],
     birthdate: [''],
     favoriteColor: [''],
@@ -19,28 +19,28 @@ export class SimpleFormReactiveComponent {
   loading = false;
 
   get name() {
-    return this.form.get('name');
+    return this.userForm.get('name');
   }
 
   get birthdate() {
-    return this.form.get('birthdate');
+    return this.userForm.get('birthdate');
   }
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly simpleFormService: SimpleFormService,
+    private readonly userService: UserService,
     private readonly snackBar: MatSnackBar
   ) {}
 
   onSubmit(): void {
-    const model: SimpleForm = this.form.value;
+    const user: User = this.userForm.value;
 
     this.loading = true;
-    this.simpleFormService
-      .save(model)
+    this.userService
+      .save(user)
       .pipe(finalize(() => (this.loading = false)))
       .subscribe(({ id }) => {
-        this.snackBar.open(`Form saved with ID #${id}`, 'Close');
+        this.snackBar.open(`User saved with ID #${id}`, 'Close');
       });
   }
 }
