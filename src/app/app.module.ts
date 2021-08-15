@@ -21,6 +21,9 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { UserFormNgxsState } from 'src/app/simple-form/user-form-ngxs/user-form-ngxs.state';
+import { CustomerRequestFormTemplateComponent } from 'src/app/custom-validation/customer-request-form-template/customer-request-form-template.component';
+import { ValidCustomerIdValidatorDirective } from './custom-validation/customer-request-form-template/valid-customer-id-validator.directive';
+import { NotInYearValidatorDirective } from './custom-validation/customer-request-form-template/not-in-year-validator.directive';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { UserFormNgxsState } from 'src/app/simple-form/user-form-ngxs/user-form-
     UserFormTemplateComponent,
     UserFormNgxsComponent,
     UserFormNgxsPluginComponent,
+    CustomerRequestFormTemplateComponent,
+    ValidCustomerIdValidatorDirective,
+    NotInYearValidatorDirective,
   ],
   imports: [
     BrowserModule,

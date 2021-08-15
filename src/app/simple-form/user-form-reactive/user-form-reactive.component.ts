@@ -32,7 +32,7 @@ export class UserFormReactiveComponent {
     private readonly snackBar: MatSnackBar
   ) {}
 
-  onSubmit(): void {
+  submit(): void {
     const user: User = this.userForm.value;
 
     this.loading = true;

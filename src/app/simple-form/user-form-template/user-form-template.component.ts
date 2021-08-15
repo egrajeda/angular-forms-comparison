@@ -23,7 +23,7 @@ export class UserFormTemplateComponent {
     private readonly snackBar: MatSnackBar
   ) {}
 
-  onSubmit(): void {
+  submit(): void {
     this.loading = true;
     this.userService
       .save(this.user)

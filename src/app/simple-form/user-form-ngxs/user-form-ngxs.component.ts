@@ -37,7 +37,7 @@ export class UserFormNgxsComponent {
     this.store.dispatch(new UserFormNgxs.SetFavoriteColor(favoriteColor));
   }
 
-  onSubmit(): void {
+  submit(): void {
     this.store
       .dispatch(new UserFormNgxs.Submit())
       .pipe(withLatestFrom(this.user$))

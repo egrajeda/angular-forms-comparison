@@ -1,0 +1,71 @@
+<h1>Customer Request (template-based)</h1>
+
+<mat-card>
+  <form (ngSubmit)="submit()" #customerRequestForm="ngForm">
+    <mat-form-field>
+      <mat-label>Customer ID</mat-label>
+      <input
+        matInput
+        required
+        appValidCustomerId
+        name="id"
+        [(ngModel)]="customerRequest.id"
+        #id="ngModel"
+      />
+      <mat-error *ngIf="id.invalid && id.errors?.required"
+        >You must enter a value</mat-error
+      >
+      <mat-error *ngIf="id.invalid && id.errors?.validCustomerId"
+        >The ID must start with two uppercase letters followed by four
+        numbers</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        required
+        [appNotInYear]="2020"
+        name="date"
+        [matDatepicker]="picker"
+        [(ngModel)]="customerRequest.date"
+        #date="ngModel"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="date.invalid && date.errors?.required"
+        >You must enter a value</mat-error
+      >
+      <mat-error *ngIf="date.invalid && date.errors?.notInYear"
+        >The date cannot be in 2020</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea
+        matInput
+        required
+        name="message"
+        [(ngModel)]="customerRequest.message"
+        #message="ngModel"
+      ></textarea>
+      <mat-error *ngIf="message.invalid">You must enter a value</mat-error>
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="loading || !customerRequestForm.form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>Customer Request (JSON)</h2>
+
+<pre
+  >{{ customerRequest | json }}
+</pre>

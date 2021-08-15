@@ -44,7 +44,7 @@ export class UserFormNgxsPluginComponent {
     private readonly snackBar: MatSnackBar
   ) {}
 
-  onSubmit(): void {
+  submit(): void {
     this.store
       .dispatch(new UserFormNgxsPlugin.Submit())
       .pipe(withLatestFrom(this.user$))

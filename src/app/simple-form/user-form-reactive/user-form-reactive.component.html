@@ -1,7 +1,7 @@
 <h1>User Form (reactive)</h1>
 
 <mat-card>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
     <mat-form-field>
       <mat-label>Name</mat-label>
       <input matInput required name="name" formControlName="name" />
