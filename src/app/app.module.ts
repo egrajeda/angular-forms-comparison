@@ -24,6 +24,7 @@ import { UserFormNgxsState } from 'src/app/simple-form/user-form-ngxs/user-form-
 import { CustomerRequestFormTemplateComponent } from 'src/app/custom-validation/customer-request-form-template/customer-request-form-template.component';
 import { ValidCustomerIdValidatorDirective } from './custom-validation/customer-request-form-template/valid-customer-id-validator.directive';
 import { NotInYearValidatorDirective } from './custom-validation/customer-request-form-template/not-in-year-validator.directive';
+import { CustomerRequestFormReactiveComponent } from './custom-validation/customer-request-form-reactive/customer-request-form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NotInYearValidatorDirective } from './custom-validation/customer-reques
     CustomerRequestFormTemplateComponent,
     ValidCustomerIdValidatorDirective,
     NotInYearValidatorDirective,
+    CustomerRequestFormReactiveComponent,
   ],
   imports: [
     BrowserModule,
