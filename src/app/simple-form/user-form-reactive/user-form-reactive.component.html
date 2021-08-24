@@ -4,7 +4,7 @@
   <form [formGroup]="userForm" (ngSubmit)="submit()">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput required name="name" formControlName="name" />
+      <input matInput name="name" formControlName="name" />
       <mat-error *ngIf="name?.errors?.required"
         >You must enter a value</mat-error
       >
@@ -13,7 +13,6 @@
       <mat-label>Birth date</mat-label>
       <input
         matInput
-        required
         name="birthdate"
         formControlName="birthdate"
         [matDatepicker]="picker"

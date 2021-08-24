@@ -12,10 +12,10 @@
         [(ngModel)]="customerRequest.id"
         #id="ngModel"
       />
-      <mat-error *ngIf="id.invalid && id.errors?.required"
+      <mat-error *ngIf="id.errors?.required"
         >You must enter a value</mat-error
       >
-      <mat-error *ngIf="id.invalid && id.errors?.validCustomerId"
+      <mat-error *ngIf="id.errors?.validCustomerId"
         >The ID must start with two uppercase letters followed by four
         numbers</mat-error
       >
@@ -33,10 +33,10 @@
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="date.invalid && date.errors?.required"
+      <mat-error *ngIf="date.errors?.required"
         >You must enter a value</mat-error
       >
-      <mat-error *ngIf="date.invalid && date.errors?.notInYear"
+      <mat-error *ngIf="date.errors?.notInYear"
         >The date cannot be in 2020</mat-error
       >
     </mat-form-field>
@@ -49,7 +49,7 @@
         [(ngModel)]="customerRequest.message"
         #message="ngModel"
       ></textarea>
-      <mat-error *ngIf="message.invalid">You must enter a value</mat-error>
+      <mat-error *ngIf="message.errors?.required">You must enter a value</mat-error>
     </mat-form-field>
     <div class="form-buttons">
       <button

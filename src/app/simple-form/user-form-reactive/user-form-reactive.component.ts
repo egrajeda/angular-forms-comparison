@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs/operators';
 import { User } from 'src/app/simple-form/user';
@@ -12,8 +12,8 @@ import { UserService } from 'src/app/simple-form/user.service';
 export class UserFormReactiveComponent {
   readonly colors = ['Red', 'Green', 'Blue'];
   readonly userForm = this.formBuilder.group({
-    name: [''],
-    birthdate: [''],
+    name: ['', Validators.required],
+    birthdate: ['', Validators.required],
     favoriteColor: [''],
   });
   loading = false;
