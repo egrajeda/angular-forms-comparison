@@ -25,6 +25,8 @@ import { CustomerRequestFormTemplateComponent } from 'src/app/custom-validation/
 import { ValidCustomerIdValidatorDirective } from './custom-validation/customer-request-form-template/valid-customer-id-validator.directive';
 import { NotInYearValidatorDirective } from './custom-validation/customer-request-form-template/not-in-year-validator.directive';
 import { CustomerRequestFormReactiveComponent } from './custom-validation/customer-request-form-reactive/customer-request-form-reactive.component';
+import { CustomerRequestFormNgxsPluginComponent } from './custom-validation/customer-request-form-ngxs-plugin/customer-request-form-ngxs-plugin.component';
+import { CustomerRequestFormNgxsPluginState } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/customer-request-form-ngxs-plugin.state';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { CustomerRequestFormReactiveComponent } from './custom-validation/custom
     ValidCustomerIdValidatorDirective,
     NotInYearValidatorDirective,
     CustomerRequestFormReactiveComponent,
+    CustomerRequestFormNgxsPluginComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,11 @@ import { CustomerRequestFormReactiveComponent } from './custom-validation/custom
     MatNativeDateModule,
     MatSelectModule,
     MatSnackBarModule,
-    NgxsModule.forRoot([UserFormNgxsState, UserFormNgxsPluginState]),
+    NgxsModule.forRoot([
+      UserFormNgxsState,
+      UserFormNgxsPluginState,
+      CustomerRequestFormNgxsPluginState,
+    ]),
     NgxsFormPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     ReactiveFormsModule,

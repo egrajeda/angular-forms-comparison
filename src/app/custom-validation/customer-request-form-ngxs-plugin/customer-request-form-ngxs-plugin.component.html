@@ -1,7 +1,11 @@
-<h1>Customer Request (reactive)</h1>
+<h1>Customer Request (NGXS with form-plugin)</h1>
 
 <mat-card>
-  <form [formGroup]="customerRequestForm" (ngSubmit)="submit()">
+  <form
+    ngxsForm="customerRequestFormNgxsPlugin.customerRequestForm"
+    [formGroup]="customerRequestForm"
+    (ngSubmit)="submit()"
+  >
     <mat-form-field>
       <mat-label>Customer ID</mat-label>
       <input matInput name="customerId" formControlName="customerId" />
@@ -42,7 +46,7 @@
         mat-raised-button
         type="submit"
         color="primary"
-        [disabled]="loading || !customerRequestForm.valid"
+        [disabled]="(loading$ | async) || !customerRequestForm.valid"
       >
         Submit
       </button>
@@ -53,5 +57,11 @@
 <h2>Customer Request (JSON)</h2>
 
 <pre
-  >{{ customerRequestForm.value | json }}
+  >{{ customerRequest$ | async | json }}
+</pre>
+
+<h2>Form state (JSON)</h2>
+
+<pre
+  >{{ customerRequestFormState$ | async | json }}
 </pre>

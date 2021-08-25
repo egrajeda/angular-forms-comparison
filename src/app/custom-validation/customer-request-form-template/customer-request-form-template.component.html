@@ -8,14 +8,14 @@
         matInput
         required
         appValidCustomerId
-        name="id"
-        [(ngModel)]="customerRequest.id"
-        #id="ngModel"
+        name="customerId"
+        [(ngModel)]="customerRequest.customerId"
+        #customerId="ngModel"
       />
-      <mat-error *ngIf="id.errors?.required"
+      <mat-error *ngIf="customerId.errors?.required"
         >You must enter a value</mat-error
       >
-      <mat-error *ngIf="id.errors?.validCustomerId"
+      <mat-error *ngIf="customerId.errors?.validCustomerId"
         >The ID must start with two uppercase letters followed by four
         numbers</mat-error
       >

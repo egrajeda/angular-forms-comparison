@@ -1,5 +1,6 @@
 export interface CustomerRequest {
-  id: string;
+  id: number;
+  customerId: string;
   date: Date;
   message: string;
 }

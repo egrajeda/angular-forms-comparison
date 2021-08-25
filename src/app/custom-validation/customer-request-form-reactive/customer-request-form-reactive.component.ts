@@ -13,14 +13,14 @@ import { CustomerRequestService } from 'src/app/custom-validation/customer-reque
 })
 export class CustomerRequestFormReactiveComponent {
   readonly customerRequestForm = this.formBuilder.group({
-    id: ['', [Validators.required, validCustomerIdValidator()]],
+    customerId: ['', [Validators.required, validCustomerIdValidator()]],
     date: ['', [Validators.required, notInYearValidator(2020)]],
     message: ['', Validators.required],
   });
   loading = false;
 
-  get id() {
-    return this.customerRequestForm.get('id');
+  get customerId() {
+    return this.customerRequestForm.get('customerId');
   }
 
   get date() {

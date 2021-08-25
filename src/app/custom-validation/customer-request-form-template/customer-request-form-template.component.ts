@@ -10,7 +10,8 @@ import { CustomerRequestService } from 'src/app/custom-validation/customer-reque
 })
 export class CustomerRequestFormTemplateComponent {
   readonly customerRequest: CustomerRequest = {
-    id: '',
+    id: 0,
+    customerId: '',
     date: new Date(),
     message: '',
   };
