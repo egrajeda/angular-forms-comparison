@@ -3,9 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs/operators';
 import { CustomerRequest } from 'src/app/custom-validation/customer-request';
-import { notInYearValidator } from 'src/app/custom-validation/customer-request-form-reactive/not-in-year-validator';
-import { validCustomerIdValidator } from 'src/app/custom-validation/customer-request-form-reactive/valid-customer-id-validator';
 import { CustomerRequestService } from 'src/app/custom-validation/customer-request.service';
+import { notInYearValidator } from 'src/app/custom-validation/not-in-year-validator.directive';
+import { validCustomerIdValidator } from 'src/app/custom-validation/valid-customer-id-validator.directive';
 
 @Component({
   selector: 'app-customer-request-form-reactive',

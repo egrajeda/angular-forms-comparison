@@ -8,8 +8,8 @@ import { CustomerRequest } from 'src/app/custom-validation/customer-request';
 import { CustomerRequestFormNgxsPlugin } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/customer-request-form-ngxs-plugin.actions';
 import { CustomerRequestFormNgxsPluginSelectors } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/customer-request-form-ngxs-plugin.selectors';
 import { CustomerRequestForm } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/customer-request-form-ngxs-plugin.state';
-import { notInYearValidator } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/not-in-year-validator';
-import { validCustomerIdValidator } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/valid-customer-id-validator';
+import { notInYearValidator } from 'src/app/custom-validation/not-in-year-validator.directive';
+import { validCustomerIdValidator } from 'src/app/custom-validation/valid-customer-id-validator.directive';
 
 @Component({
   selector: 'app-customer-request-form-ngxs-plugin',
