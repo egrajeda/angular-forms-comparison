@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, DoBootstrap, Injector, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -29,6 +29,7 @@ import { CustomerRequestFormNgxsPluginComponent } from './custom-validation/cust
 import { CustomerRequestFormNgxsPluginState } from 'src/app/custom-validation/customer-request-form-ngxs-plugin/customer-request-form-ngxs-plugin.state';
 import { CustomerRequestFormNgxsState } from 'src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.state';
 import { CustomerRequestFormNgxsComponent } from 'src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.component';
+import { createCustomElement } from '@angular/elements';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,16 @@ import { CustomerRequestFormNgxsComponent } from 'src/app/custom-validation/cust
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule implements DoBootstrap {
+  constructor(injector: Injector) {
+    const appElement = createCustomElement(AppComponent, { injector });
+    customElements.define('app-root', appElement);
+
+    const userFormTemplateElement = createCustomElement(UserFormTemplateComponent, { injector });
+    customElements.define('app-user-form-template', userFormTemplateElement);
+  }
+
+  ngDoBootstrap(appRef: ApplicationRef): void {
+  }
+}

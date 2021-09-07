@@ -43,3 +43,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# docs
+docs/_base
+docs/_site
+docs/_includes/default-generated.njk
