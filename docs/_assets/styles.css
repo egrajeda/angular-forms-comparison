@@ -6,6 +6,20 @@ pre {
   margin: 0;
 }
 
+.intro {
+  width: 48%;
+  margin: 24px;
+  font-size: 1.1em;
+}
+
+.intro a {
+  margin: 0 6px;
+}
+
+.intro p > a:first-child {
+  margin-left: 0;
+}
+
 .form-example {
   width: 48%;
   max-width: 700px;

@@ -76,6 +76,9 @@ export class AppModule implements DoBootstrap {
 
     const userFormTemplateElement = createCustomElement(UserFormTemplateComponent, { injector });
     customElements.define('app-user-form-template', userFormTemplateElement);
+
+    const userFormReactiveElement = createCustomElement(UserFormReactiveComponent, { injector });
+    customElements.define('app-user-form-reactive', userFormReactiveElement);
   }
 
   ngDoBootstrap(appRef: ApplicationRef): void {

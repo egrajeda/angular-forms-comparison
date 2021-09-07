@@ -69,7 +69,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "docs/_base",
-            "index": "docs/index.html",
+            "index": "docs/_includes/default.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
