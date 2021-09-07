@@ -1,4 +1,4 @@
-name: CI
+name: Documentation
 
 on:
   push:
@@ -11,7 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Run a one-line script
+      - name: Generate documentation
         run: |
           npm install
           npm run docs:build
+          git branch -D www
+          git checkout --orphan www
+          mv docs old-docs
+          mv old-docs/_site docs
+          rm -rf old-docs
+          git add .
+          git commit -m "Add generated documentation"
+          git config --global user.name 'Eduardo Grajeda'
+          git config --global user.email 'egrajeda@users.noreply.github.com'
+          git push -f origin www
