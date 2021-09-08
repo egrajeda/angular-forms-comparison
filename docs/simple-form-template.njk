@@ -1,16 +1,21 @@
 ---
 layout: example.njk
 example: <app-user-form-template></app-user-form-template>
+github: simple-form/user-form-template
 ---
 
-<pre><code>
-// The main things to notice are:
-//   1. Use [(ngModel)] for two-way binding.
-//   2. Access each field validation errors through ngModel.
-//   3. Access the form validation state through ngForm.
-</code></pre>
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Use the [(ngModel)] attribute for two-way binding.</li>
+            <li>Access each field validation errors through ngModel.</li>
+            <li>Access the form validation state through ngForm.</li>
+        </ol>
+    </p>
+</div>
 
 {% src 'app/simple-form/user.ts' %}
-{% src 'app/simple-form/user.service.ts' %}
 {% src 'app/simple-form/user-form-template/user-form-template.component.html' %}
 {% src 'app/simple-form/user-form-template/user-form-template.component.ts' %}
+{% src 'app/simple-form/user.service.ts' %}

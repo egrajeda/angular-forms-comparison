@@ -3,6 +3,15 @@ layout: default-generated.njk
 ---
 
 <div class="form-code">
+    <div class="reference">
+        {% if documentation %}
+        <a href="{{ documentation }}">Official Documentation</a>
+        {% endif %}
+        {% if github %}
+        <a href="https://github.com/egrajeda/angular-forms-comparison/tree/master/src/app/{{ github }}">View Source on Github</a>
+        {% endif %}
+    </div>
+
     {{ content | safe }}
 </div>
 

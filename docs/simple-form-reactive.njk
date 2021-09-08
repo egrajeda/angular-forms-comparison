@@ -1,18 +1,23 @@
 ---
 layout: example.njk
 example: <app-user-form-reactive></app-user-form-reactive>
+github: simple-form/user-form-reactive
 ---
 
-<pre><code>
-// The main things to notice are:
-//   1. Use FormBuilder and bind it to the form with the [formGroup] attribute.
-//   2. Use the formControlName attribute to bind each field to its form control.
-//   3. Create one getter per form control for easier access.
-//   4. Access each field validation errors through its getter.
-//   5. Access the form validation state through the form.
-</code></pre>
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Use FormBuilder and bind it to the form with the [formGroup] attribute.</li>
+            <li>Use the formControlName attribute to bind each field to its form control.</li>
+            <li>Create one getter per form control for easier access.</li>
+            <li>Access each field validation errors through its getter.</li>
+            <li>Access the form validation state through the form.</li>
+        </ol>
+    </p>
+</div>
 
 {% src 'app/simple-form/user.ts' %}
-{% src 'app/simple-form/user.service.ts' %}
 {% src 'app/simple-form/user-form-reactive/user-form-reactive.component.html' %}
 {% src 'app/simple-form/user-form-reactive/user-form-reactive.component.ts' %}
+{% src 'app/simple-form/user.service.ts' %}

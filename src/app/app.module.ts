@@ -74,11 +74,31 @@ export class AppModule implements DoBootstrap {
     const appElement = createCustomElement(AppComponent, { injector });
     customElements.define('app-root', appElement);
 
+    // simple-form
     const userFormTemplateElement = createCustomElement(UserFormTemplateComponent, { injector });
     customElements.define('app-user-form-template', userFormTemplateElement);
 
     const userFormReactiveElement = createCustomElement(UserFormReactiveComponent, { injector });
     customElements.define('app-user-form-reactive', userFormReactiveElement);
+
+    const userFormNgxsElement = createCustomElement(UserFormNgxsComponent, { injector });
+    customElements.define('app-user-form-ngxs', userFormNgxsElement);
+
+    const userFormNgxsPluginElement = createCustomElement(UserFormNgxsPluginComponent, { injector });
+    customElements.define('app-user-form-ngxs-plugin', userFormNgxsPluginElement);
+
+    // custom-validation
+    const customerRequestFormTemplateElement = createCustomElement(CustomerRequestFormTemplateComponent, { injector });
+    customElements.define('app-customer-request-form-template', customerRequestFormTemplateElement);
+
+    const customerRequestFormReactiveElement = createCustomElement(CustomerRequestFormReactiveComponent, { injector });
+    customElements.define('app-customer-request-form-reactive', customerRequestFormReactiveElement);
+
+    const customerRequestFormNgxsElement = createCustomElement(CustomerRequestFormNgxsComponent, { injector });
+    customElements.define('app-customer-request-form-ngxs', customerRequestFormNgxsElement);
+
+    const customerRequestFormNgxsPluginElement = createCustomElement(CustomerRequestFormNgxsPluginComponent, { injector });
+    customElements.define('app-customer-request-form-ngxs-plugin', customerRequestFormNgxsPluginElement);
   }
 
   ngDoBootstrap(appRef: ApplicationRef): void {

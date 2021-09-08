@@ -1,0 +1,25 @@
+---
+layout: example.njk
+example: <app-user-form-ngxs></app-user-form-ngxs>
+github: simple-form/user-form-ngxs
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Use the [ngModel] attribute for one-way binding.</li>
+            <li>Use the (ngModelChange) attribute to update the state.</li>
+            <li>Access each field validation errors through ngModel.</li>
+            <li>Access the form validation state through ngForm.</li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/simple-form/user.ts' %}
+{% src 'app/simple-form/user-form-ngxs/user-form-ngxs.component.html' %}
+{% src 'app/simple-form/user-form-ngxs/user-form-ngxs.component.ts' %}
+{% src 'app/simple-form/user.service.ts' %}
+{% src 'app/simple-form/user-form-ngxs/user-form-ngxs.state.ts' %}
+{% src 'app/simple-form/user-form-ngxs/user-form-ngxs.actions.ts' %}
+{% src 'app/simple-form/user-form-ngxs/user-form-ngxs.selectors.ts' %}

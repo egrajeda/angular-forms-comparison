@@ -1,0 +1,27 @@
+---
+layout: example.njk
+example: <app-user-form-ngxs-plugin></app-user-form-ngxs-plugin>
+github: simple-form/user-form-ngxs-plugin
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Use FormBuilder and bind it to the form with the [formGroup] attribute.</li>
+            <li>Use the ngxsForm attribute to bind the form to the state.</li>
+            <li>Use the formControlName attribute to bind each field to its form control.</li>
+            <li>Create one getter per form control for easier access.</li>
+            <li>Access each field validation errors through its getter.</li>
+            <li>Access the form validation state through the form.</li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/simple-form/user.ts' %}
+{% src 'app/simple-form/user-form-ngxs-plugin/user-form-ngxs-plugin.component.html' %}
+{% src 'app/simple-form/user-form-ngxs-plugin/user-form-ngxs-plugin.component.ts' %}
+{% src 'app/simple-form/user.service.ts' %}
+{% src 'app/simple-form/user-form-ngxs-plugin/user-form-ngxs-plugin.state.ts' %}
+{% src 'app/simple-form/user-form-ngxs-plugin/user-form-ngxs-plugin.actions.ts' %}
+{% src 'app/simple-form/user-form-ngxs-plugin/user-form-ngxs-plugin.selectors.ts' %}

@@ -6,10 +6,22 @@ pre {
   margin: 0;
 }
 
+a {
+  color: blue;
+}
+
 .intro {
   width: 48%;
   margin: 24px;
   font-size: 1.1em;
+}
+
+.mat-typography .intro h1 {
+  margin-top: 36px;
+}
+
+.mat-typography .intro h1:first-child {
+  margin-top: 0;
 }
 
 .intro a {
@@ -30,6 +42,26 @@ pre {
 .form-code {
   width: 48%;
   float: right;
-  color: #ccc;
+  color: white;
   background-color: #2d2d2d;
+}
+
+.reference, .preface {
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+.reference {
+  float: right;
+  font-size: 1em;
+}
+
+.reference a {
+  color: white;
+  font-size: 1.1em;
+  margin: 0 6px;
+}
+
+.mat-typography .preface h1 {
+  font-size: 1.2em;
 }
