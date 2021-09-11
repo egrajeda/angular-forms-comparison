@@ -17,6 +17,7 @@ export function validCustomerIdValidator(): ValidatorFn {
   };
 }
 
+// IMPORTANT: The directive is not needed if you're using reactive forms
 @Directive({
   selector: '[appValidCustomerId]',
   providers: [

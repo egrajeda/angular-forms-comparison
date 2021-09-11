@@ -1,0 +1,27 @@
+---
+layout: example.njk
+example: <app-customer-request-form-ngxs></app-customer-request-form-ngxs>
+documentation: https://angular.io/guide/form-validation
+github: custom-validation/customer-request-form-ngxs
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Define the validation inside a function, which is then used by a directive.</li>
+            <li>Set the custom validators by using directives on the fields.</li>
+            <li>Access the validation errors through ngModel.</li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/custom-validation/customer-request.ts' %}
+{% src 'app/custom-validation/not-in-year-validator.directive.ts' %}
+{% src 'app/custom-validation/valid-customer-id-validator.directive.ts' %}
+{% src 'app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.component.html' %}
+{% src 'app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.component.ts' %}
+{% src 'app/custom-validation/customer-request.service.ts' %}
+{% src 'app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.state.ts' %}
+{% src 'app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.actions.ts' %}
+{% src 'app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.selectors.ts' %}

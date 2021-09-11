@@ -1,0 +1,24 @@
+---
+layout: example.njk
+example: <app-customer-request-form-reactive></app-customer-request-form-reactive>
+documentation: https://angular.io/guide/form-validation
+github: custom-validation/customer-request-form-reactive
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Define the validation inside a function.</li>
+            <li>Set the custom validators with the FormBuilder.</li>
+            <li>Access the validation errors through the field getter.</li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/custom-validation/customer-request.ts' %}
+{% src 'app/custom-validation/not-in-year-validator.directive.ts' %}
+{% src 'app/custom-validation/valid-customer-id-validator.directive.ts' %}
+{% src 'app/custom-validation/customer-request-form-reactive/customer-request-form-reactive.component.html' %}
+{% src 'app/custom-validation/customer-request-form-reactive/customer-request-form-reactive.component.ts' %}
+{% src 'app/custom-validation/customer-request.service.ts' %}

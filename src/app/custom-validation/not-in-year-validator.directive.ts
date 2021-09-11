@@ -19,6 +19,7 @@ export function notInYearValidator(notInYear: number): ValidatorFn {
   };
 }
 
+// IMPORTANT: The directive is not needed if you're using reactive forms
 @Directive({
   selector: '[appNotInYear]',
   providers: [
