@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "docs:start": "cd docs && ELEVENTY_ENV=development eleventy --serve",
     "docs:build": "ng run angular-forms-comparison:build-docs && cd docs && cp _base/default.html _includes/default-generated.njk && ELEVENTY_ENV=production eleventy",
+    "prettier": "prettier --write --ignore-path .gitignore \"**/*.{ts,js,json,html,css,scss,md}\"",
     "test": "ng test"
   },
   "private": true,
@@ -45,7 +46,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "lodash": "^4.17.21",
-    "prettier": "^2.3.2",
+    "prettier": "2.4.0",
     "typescript": "~4.2.3"
   }
 }

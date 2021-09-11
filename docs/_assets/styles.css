@@ -46,7 +46,8 @@ a {
   background-color: #2d2d2d;
 }
 
-.reference, .preface {
+.reference,
+.preface {
   padding: 1em;
   font-size: 1.1em;
 }
