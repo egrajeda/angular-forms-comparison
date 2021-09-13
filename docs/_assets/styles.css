@@ -6,6 +6,11 @@ pre {
   margin: 0;
 }
 
+pre code {
+  display: block;
+  padding: 1em;
+}
+
 a {
   color: blue;
 }
