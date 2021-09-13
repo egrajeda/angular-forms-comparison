@@ -1,0 +1,42 @@
+---
+layout: example.njk
+example: <app-sign-up-form-template></app-sign-up-form-template>
+documentation: https://angular.io/guide/form-validation
+github: custom-validation/sign-up-form-template
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>
+                The validator is
+                <a href="https://www.learnrxjs.io/learn-rxjs/operators/filtering/debouncetime">debounced</a>
+                to avoid doing too many HTTP requests.
+            </li>
+            <li>
+                Template-based forms do not have an easy way to implement debounce. If you implement
+                <code>AsyncValidator</code>, the <code>validate()</code> method is called on each keystroke, and doesn't
+                allow you to debounce.
+            </li>
+            <li>The validator is built inside a normal directive, with the main logic on the constructor.</li>
+            <li>
+                When the validation starts call <code>markAsPending()</code>. When the validation ends call
+                <code>setErrors()</code>.
+            </li>
+            <li>
+                Pass the current errors when setting any new error, to not override what other validators might have
+                done.
+            </li>
+            <li>Set the custom validators by using directives on the fields.</li>
+            <li>Access the validation errors through <code>ngModel</code>.</li>
+            <li>Access the state of the validation through <code>ngModel.pending</code></li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/async-validation/user.ts' %}
+{% src 'app/async-validation/unique-username-validator.directive.ts' %}
+{% src 'app/async-validation/sign-up-form-template/sign-up-form-template.component.html' %}
+{% src 'app/async-validation/sign-up-form-template/sign-up-form-template.component.ts' %}
+{% src 'app/async-validation/user.service.ts' %}

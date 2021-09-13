@@ -46,6 +46,10 @@ a {
   background-color: #2d2d2d;
 }
 
+.form-code a {
+  color: white;
+}
+
 .reference,
 .preface {
   padding: 1em;
@@ -58,7 +62,6 @@ a {
 }
 
 .reference a {
-  color: white;
   font-size: 1.1em;
   margin: 0 6px;
 }

@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,6 +31,8 @@ import { CustomerRequestFormNgxsPluginState } from 'src/app/custom-validation/cu
 import { CustomerRequestFormNgxsState } from 'src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.state';
 import { CustomerRequestFormNgxsComponent } from 'src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.component';
 import { createCustomElement } from '@angular/elements';
+import { SignUpFormTemplateComponent } from './async-validation/sign-up-form-template/sign-up-form-template.component';
+import { UniqueUsernameValidatorDirective } from './async-validation/unique-username-validator.directive';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,8 @@ import { createCustomElement } from '@angular/elements';
     CustomerRequestFormReactiveComponent,
     CustomerRequestFormNgxsComponent,
     CustomerRequestFormNgxsPluginComponent,
+    SignUpFormTemplateComponent,
+    UniqueUsernameValidatorDirective,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { createCustomElement } from '@angular/elements';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatSnackBarModule,
     NgxsModule.forRoot([
@@ -136,6 +142,16 @@ export class AppModule implements DoBootstrap {
     customElements.define(
       'app-customer-request-form-ngxs-plugin',
       customerRequestFormNgxsPluginElement
+    );
+
+    // async-validation
+    const signUpFormTemplateElement = createCustomElement(
+      SignUpFormTemplateComponent,
+      { injector }
+    );
+    customElements.define(
+      'app-sign-up-form-template',
+      signUpFormTemplateElement
     );
   }
 
