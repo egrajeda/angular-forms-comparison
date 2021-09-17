@@ -33,6 +33,7 @@ import { CustomerRequestFormNgxsComponent } from 'src/app/custom-validation/cust
 import { createCustomElement } from '@angular/elements';
 import { SignUpFormTemplateComponent } from './async-validation/sign-up-form-template/sign-up-form-template.component';
 import { UniqueUsernameValidatorDirective } from './async-validation/unique-username-validator.directive';
+import { SignUpFormReactiveComponent } from './async-validation/sign-up-form-reactive/sign-up-form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { UniqueUsernameValidatorDirective } from './async-validation/unique-user
     CustomerRequestFormNgxsPluginComponent,
     SignUpFormTemplateComponent,
     UniqueUsernameValidatorDirective,
+    SignUpFormReactiveComponent,
   ],
   imports: [
     BrowserModule,
@@ -152,6 +154,15 @@ export class AppModule implements DoBootstrap {
     customElements.define(
       'app-sign-up-form-template',
       signUpFormTemplateElement
+    );
+
+    const signUpFormReactiveElement = createCustomElement(
+      SignUpFormReactiveComponent,
+      { injector }
+    );
+    customElements.define(
+      'app-sign-up-form-reactive',
+      signUpFormReactiveElement
     );
   }
 
