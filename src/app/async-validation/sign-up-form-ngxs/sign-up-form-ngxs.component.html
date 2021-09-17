@@ -1,0 +1,60 @@
+<h1>Sign Up Form (NGXS)</h1>
+
+<mat-card>
+  <form (ngSubmit)="submit()" #signUpForm="ngForm">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        required
+        appUniqueUsername
+        name="username"
+        [ngModel]="(user$ | async)?.username"
+        (ngModelChange)="setUsername($event)"
+        #username="ngModel"
+      />
+      <mat-spinner
+        matSuffix
+        [diameter]="18"
+        *ngIf="username.pending"
+      ></mat-spinner>
+      <mat-error *ngIf="username.errors?.required"
+        >You must enter a value</mat-error
+      >
+      <mat-error *ngIf="username.errors?.uniqueUsername"
+        >The username has already been taken</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        required
+        type="password"
+        name="password"
+        [ngModel]="(user$ | async)?.password"
+        (ngModelChange)="setPassword($event)"
+        #password="ngModel"
+      />
+      <mat-error *ngIf="password.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="(loading$ | async) || !signUpForm.form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>User (JSON)</h2>
+
+<pre
+  >{{ user$ | async | json }}
+</pre>

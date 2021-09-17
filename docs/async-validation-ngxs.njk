@@ -1,8 +1,8 @@
 ---
 layout: example.njk
-example: <app-sign-up-form-template></app-sign-up-form-template>
+example: <app-sign-up-form-ngxs></app-sign-up-form-ngxs>
 documentation: https://angular.io/guide/form-validation
-github: async-validation/sign-up-form-template
+github: async-validation/sign-up-form-ngxs
 ---
 
 <div class="preface">
@@ -37,6 +37,9 @@ github: async-validation/sign-up-form-template
 
 {% src 'app/async-validation/user.ts' %}
 {% src 'app/async-validation/unique-username-validator.directive.ts' %}
-{% src 'app/async-validation/sign-up-form-template/sign-up-form-template.component.html' %}
-{% src 'app/async-validation/sign-up-form-template/sign-up-form-template.component.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs/sign-up-form-ngxs.component.html' %}
+{% src 'app/async-validation/sign-up-form-ngxs/sign-up-form-ngxs.component.ts' %}
 {% src 'app/async-validation/user.service.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs/sign-up-form-ngxs.state.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs/sign-up-form-ngxs.actions.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs/sign-up-form-ngxs.selectors.ts' %}

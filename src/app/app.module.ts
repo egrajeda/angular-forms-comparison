@@ -34,6 +34,8 @@ import { createCustomElement } from '@angular/elements';
 import { SignUpFormTemplateComponent } from './async-validation/sign-up-form-template/sign-up-form-template.component';
 import { UniqueUsernameValidatorDirective } from './async-validation/unique-username-validator.directive';
 import { SignUpFormReactiveComponent } from './async-validation/sign-up-form-reactive/sign-up-form-reactive.component';
+import { SignUpFormNgxsComponent } from './async-validation/sign-up-form-ngxs/sign-up-form-ngxs.component';
+import { SignUpFormNgxsState } from './async-validation/sign-up-form-ngxs/sign-up-form-ngxs.state';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { SignUpFormReactiveComponent } from './async-validation/sign-up-form-rea
     SignUpFormTemplateComponent,
     UniqueUsernameValidatorDirective,
     SignUpFormReactiveComponent,
+    SignUpFormNgxsComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { SignUpFormReactiveComponent } from './async-validation/sign-up-form-rea
       UserFormNgxsPluginState,
       CustomerRequestFormNgxsState,
       CustomerRequestFormNgxsPluginState,
+      SignUpFormNgxsState,
     ]),
     NgxsFormPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
@@ -164,6 +168,11 @@ export class AppModule implements DoBootstrap {
       'app-sign-up-form-reactive',
       signUpFormReactiveElement
     );
+
+    const signUpFormNgxsElement = createCustomElement(SignUpFormNgxsComponent, {
+      injector,
+    });
+    customElements.define('app-sign-up-form-ngxs', signUpFormNgxsElement);
   }
 
   ngDoBootstrap(appRef: ApplicationRef): void {}
