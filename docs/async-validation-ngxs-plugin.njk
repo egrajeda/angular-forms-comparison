@@ -1,0 +1,32 @@
+---
+layout: example.njk
+example: <app-sign-up-form-ngxs-plugin></app-sign-up-form-ngxs-plugin>
+documentation: https://angular.io/guide/form-validation
+github: async-validation/sign-up-form-ngxs-plugin
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Define the validator by implementing <code>AsyncValidator</code>.</li>
+            <li>
+                The validator is debounced with
+                <a href="https://www.learnrxjs.io/learn-rxjs/operators/utility/delay"><code>delay</code></a>
+                to avoid doing too many HTTP requests.
+            </li>
+            <li>Set the custom validators with <code>FormBuilder</code>.</li>
+            <li>Access the validation errors through the field getter.</li>
+            <li>Access the state of the validation through <code>ngModel.pending</code></li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/async-validation/user.ts' %}
+{% src 'app/async-validation/unique-username-validator.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.component.html' %}
+{% src 'app/async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.component.ts' %}
+{% src 'app/async-validation/user.service.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.state.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.actions.ts' %}
+{% src 'app/async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.selectors.ts' %}

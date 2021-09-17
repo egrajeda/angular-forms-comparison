@@ -8,8 +8,8 @@ import {
 
 export class UserFormNgxsPluginSelectors {
   @Selector([UserFormNgxsPluginState])
-  static form({ userForm: form }: UserFormNgxsPluginStateModel): UserForm {
-    return form;
+  static form({ userForm }: UserFormNgxsPluginStateModel): UserForm {
+    return userForm;
   }
 
   @Selector([UserFormNgxsPluginSelectors.form])

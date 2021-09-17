@@ -9,9 +9,9 @@ import {
 export class CustomerRequestFormNgxsPluginSelectors {
   @Selector([CustomerRequestFormNgxsPluginState])
   static form({
-    customerRequestForm: form,
+    customerRequestForm,
   }: CustomerRequestFormNgxsPluginStateModel): CustomerRequestForm {
-    return form;
+    return customerRequestForm;
   }
 
   @Selector([CustomerRequestFormNgxsPluginSelectors.form])
