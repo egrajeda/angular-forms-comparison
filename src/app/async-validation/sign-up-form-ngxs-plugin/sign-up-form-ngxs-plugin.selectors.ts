@@ -14,7 +14,7 @@ export class SignUpFormNgxsPluginSelectors {
 
   @Selector([SignUpFormNgxsPluginSelectors.form])
   static model({ model }: SignUpForm): User {
-    return model!;
+    return model;
   }
 
   @Selector([SignUpFormNgxsPluginState])
