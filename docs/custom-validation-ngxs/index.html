@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Comparison of Angular Forms approaches</title>
+
+    </head><body class="mat-typography">
+    <base href="/angular-forms-comparison/">
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style type="text/css">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+    <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v103/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+    <link href="styles.css" rel="stylesheet">
+  <style>.mat-typography{font:400 14px/20px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal;}body,html{height:100%;}body{background-color:#fafafa;font-family:Roboto,Helvetica Neue,sans-serif;}</style><link rel="stylesheet" href="styles.725a1c956ddc1dd3f1dd.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.725a1c956ddc1dd3f1dd.css"></noscript>
+  
+    
+<div class="form-code">
+    <div class="reference">
+        
+        <a href="https://angular.io/guide/form-validation">Official Documentation</a>
+        
+        
+        <a href="https://github.com/egrajeda/angular-forms-comparison/tree/master/src/app/custom-validation/customer-request-form-ngxs">View Source on Github</a>
+        
+    </div>
+
+    
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Define the validation inside a function, which is then used by a directive.</li>
+            <li>Set the custom validators by using directives on the fields.</li>
+            <li>Access the validation errors through ngModel.</li>
+        </ol>
+    </p>
+</div>
+
+<pre><code>// app/custom-validation/customer-request.ts
+
+export interface CustomerRequest {
+  id: number;
+  customerId: string;
+  date: Date;
+  message: string;
+}
+</code></pre>
+<pre><code>// app/custom-validation/not-in-year-validator.directive.ts
+
+import { Directive, Input } from &#39;@angular/core&#39;;
+import {
+  AbstractControl,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+  ValidatorFn,
+} from &#39;@angular/forms&#39;;
+
+export function notInYearValidator(notInYear: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null =&gt; {
+    if (!control.value) {
+      return null;
+    }
+    const date = control.value as Date;
+    return date.getFullYear() == notInYear
+      ? { notInYear: { value: control.value } }
+      : null;
+  };
+}
+
+// IMPORTANT: The directive is not needed if you&#39;re using reactive forms
+@Directive({
+  selector: &#39;[appNotInYear]&#39;,
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: NotInYearValidatorDirective,
+      multi: true,
+    },
+  ],
+})
+export class NotInYearValidatorDirective implements Validator {
+  @Input(&#39;appNotInYear&#39;)
+  notInYear?: number;
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    return this.notInYear ? notInYearValidator(this.notInYear)(control) : null;
+  }
+}
+</code></pre>
+<pre><code>// app/custom-validation/valid-customer-id-validator.directive.ts
+
+import { Directive } from &#39;@angular/core&#39;;
+import {
+  AbstractControl,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+  ValidatorFn,
+} from &#39;@angular/forms&#39;;
+
+export function validCustomerIdValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null =&gt; {
+    if (!control.value) {
+      return null;
+    }
+    const valid = /^[A-Z]{2}[0-9]{4}$/.test(control.value);
+    return valid ? null : { validCustomerId: { value: control.value } };
+  };
+}
+
+// IMPORTANT: The directive is not needed if you&#39;re using reactive forms
+@Directive({
+  selector: &#39;[appValidCustomerId]&#39;,
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: ValidCustomerIdValidatorDirective,
+      multi: true,
+    },
+  ],
+})
+export class ValidCustomerIdValidatorDirective implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+    return validCustomerIdValidator()(control);
+  }
+}
+</code></pre>
+<pre><code>&lt;!-- app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.component.html --&gt;
+
+&lt;h1&gt;Customer Request (NGXS)&lt;/h1&gt;
+
+&lt;mat-card&gt;
+  &lt;form (ngSubmit)=&quot;submit()&quot; #customerRequestForm=&quot;ngForm&quot;&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Customer ID&lt;/mat-label&gt;
+      &lt;input
+        matInput
+        required
+        appValidCustomerId
+        name=&quot;customerId&quot;
+        [ngModel]=&quot;(customerRequest$ | async)?.customerId&quot;
+        (ngModelChange)=&quot;setCustomerId($event)&quot;
+        #customerId=&quot;ngModel&quot;
+      /&gt;
+      &lt;mat-error *ngIf=&quot;customerId.errors?.required&quot;
+        &gt;You must enter a value&lt;/mat-error
+      &gt;
+      &lt;mat-error *ngIf=&quot;customerId.errors?.validCustomerId&quot;
+        &gt;The ID must start with two uppercase letters followed by four
+        numbers&lt;/mat-error
+      &gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Date&lt;/mat-label&gt;
+      &lt;input
+        matInput
+        required
+        [appNotInYear]=&quot;2020&quot;
+        name=&quot;date&quot;
+        [matDatepicker]=&quot;picker&quot;
+        [ngModel]=&quot;(customerRequest$ | async)?.date&quot;
+        (ngModelChange)=&quot;setDate($event)&quot;
+        #date=&quot;ngModel&quot;
+      /&gt;
+      &lt;mat-datepicker-toggle matSuffix [for]=&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+      &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+      &lt;mat-error *ngIf=&quot;date.errors?.required&quot;
+        &gt;You must enter a value&lt;/mat-error
+      &gt;
+      &lt;mat-error *ngIf=&quot;date.errors?.notInYear&quot;
+        &gt;The date cannot be in 2020&lt;/mat-error
+      &gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Message&lt;/mat-label&gt;
+      &lt;textarea
+        matInput
+        required
+        name=&quot;message&quot;
+        [ngModel]=&quot;(customerRequest$ | async)?.message&quot;
+        (ngModelChange)=&quot;setMessage($event)&quot;
+        #message=&quot;ngModel&quot;
+      &gt;&lt;/textarea&gt;
+      &lt;mat-error *ngIf=&quot;message.errors?.required&quot;
+        &gt;You must enter a value&lt;/mat-error
+      &gt;
+    &lt;/mat-form-field&gt;
+    &lt;div class=&quot;form-buttons&quot;&gt;
+      &lt;button
+        mat-raised-button
+        type=&quot;submit&quot;
+        color=&quot;primary&quot;
+        [disabled]=&quot;(loading$ | async) || !customerRequestForm.form.valid&quot;
+      &gt;
+        Submit
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/mat-card&gt;
+
+&lt;h2&gt;Customer Request (JSON)&lt;/h2&gt;
+
+&lt;pre
+  &gt;{{ customerRequest$ | async | json }}
+&lt;/pre&gt;
+</code></pre>
+<pre><code>// app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.component.ts
+
+import { Component } from &#39;@angular/core&#39;;
+import { MatSnackBar } from &#39;@angular/material/snack-bar&#39;;
+import { Select, Store } from &#39;@ngxs/store&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { withLatestFrom } from &#39;rxjs/operators&#39;;
+import { CustomerRequest } from &#39;src/app/custom-validation/customer-request&#39;;
+import { CustomerRequestFormNgxs } from &#39;src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.actions&#39;;
+import { CustomerRequestFormNgxsSelectors } from &#39;src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.selectors&#39;;
+
+@Component({
+  selector: &#39;app-customer-request-form-ngxs&#39;,
+  templateUrl: &#39;./customer-request-form-ngxs.component.html&#39;,
+})
+export class CustomerRequestFormNgxsComponent {
+  @Select(CustomerRequestFormNgxsSelectors.customerRequest)
+  customerRequest$!: Observable&lt;CustomerRequest&gt;;
+
+  @Select(CustomerRequestFormNgxsSelectors.loading)
+  loading$!: Observable&lt;boolean&gt;;
+
+  constructor(
+    private readonly store: Store,
+    private readonly snackBar: MatSnackBar
+  ) {}
+
+  setCustomerId(customerId: string) {
+    this.store.dispatch(new CustomerRequestFormNgxs.SetCustomerId(customerId));
+  }
+
+  setDate(date: Date) {
+    this.store.dispatch(new CustomerRequestFormNgxs.SetDate(date));
+  }
+
+  setMessage(message: string) {
+    this.store.dispatch(new CustomerRequestFormNgxs.SetMessage(message));
+  }
+
+  submit(): void {
+    this.store
+      .dispatch(new CustomerRequestFormNgxs.Submit())
+      .pipe(withLatestFrom(this.customerRequest$))
+      .subscribe(([, { id }]) =&gt; {
+        this.snackBar.open(`Customer request saved with ID #${id}`, &#39;Close&#39;);
+      });
+  }
+}
+</code></pre>
+<pre><code>// app/custom-validation/customer-request.service.ts
+
+import { Injectable } from &#39;@angular/core&#39;;
+import { Observable, of } from &#39;rxjs&#39;;
+import { delay } from &#39;rxjs/operators&#39;;
+import { CustomerRequest } from &#39;src/app/custom-validation/customer-request&#39;;
+
+export interface CustomerRequestSaveResponse {
+  id: number;
+}
+
+@Injectable({
+  providedIn: &#39;root&#39;,
+})
+export class CustomerRequestService {
+  save(
+    customerRequest: CustomerRequest
+  ): Observable&lt;CustomerRequestSaveResponse&gt; {
+    console.log(&#39;Save:&#39;, customerRequest);
+    return of({
+      id: 1,
+    }).pipe(delay(1000));
+  }
+}
+</code></pre>
+<pre><code>// app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.state.ts
+
+import { Injectable } from &#39;@angular/core&#39;;
+import { Action, State, StateContext } from &#39;@ngxs/store&#39;;
+import { finalize, tap } from &#39;rxjs/operators&#39;;
+import { CustomerRequest } from &#39;src/app/custom-validation/customer-request&#39;;
+import { CustomerRequestFormNgxs } from &#39;src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.actions&#39;;
+import { CustomerRequestService } from &#39;src/app/custom-validation/customer-request.service&#39;;
+
+export interface CustomerRequestFormNgxsStateModel {
+  customerRequest: CustomerRequest;
+  loading: boolean;
+}
+
+@State&lt;CustomerRequestFormNgxsStateModel&gt;({
+  name: &#39;customerRequestFormNgxs&#39;,
+  defaults: {
+    customerRequest: {
+      id: 0,
+      customerId: &#39;&#39;,
+      date: new Date(),
+      message: &#39;&#39;,
+    },
+    loading: false,
+  },
+})
+@Injectable()
+export class CustomerRequestFormNgxsState {
+  constructor(
+    private readonly customerRequestService: CustomerRequestService
+  ) {}
+
+  @Action(CustomerRequestFormNgxs.SetCustomerId)
+  setCustomerId(
+    context: StateContext&lt;CustomerRequestFormNgxsStateModel&gt;,
+    { customerId }: CustomerRequestFormNgxs.SetCustomerId
+  ) {
+    const state = context.getState();
+    context.patchState({
+      customerRequest: { ...state.customerRequest, customerId },
+    });
+  }
+
+  @Action(CustomerRequestFormNgxs.SetDate)
+  setDate(
+    context: StateContext&lt;CustomerRequestFormNgxsStateModel&gt;,
+    { date }: CustomerRequestFormNgxs.SetDate
+  ) {
+    const state = context.getState();
+    context.patchState({
+      customerRequest: { ...state.customerRequest, date },
+    });
+  }
+
+  @Action(CustomerRequestFormNgxs.SetMessage)
+  setMessage(
+    context: StateContext&lt;CustomerRequestFormNgxsStateModel&gt;,
+    { message }: CustomerRequestFormNgxs.SetMessage
+  ) {
+    const state = context.getState();
+    context.patchState({
+      customerRequest: { ...state.customerRequest, message },
+    });
+  }
+
+  @Action(CustomerRequestFormNgxs.Submit)
+  submit(context: StateContext&lt;CustomerRequestFormNgxsStateModel&gt;) {
+    const state = context.getState();
+    context.patchState({
+      loading: true,
+    });
+    return this.customerRequestService.save(state.customerRequest).pipe(
+      tap(({ id }) =&gt;
+        context.patchState({
+          customerRequest: {
+            ...state.customerRequest,
+            id,
+          },
+        })
+      ),
+      finalize(() =&gt;
+        context.patchState({
+          loading: false,
+        })
+      )
+    );
+  }
+}
+</code></pre>
+<pre><code>// app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.actions.ts
+
+export namespace CustomerRequestFormNgxs {
+  export class SetCustomerId {
+    static readonly type = &#39;[CustomerRequestFormNgxs] SetCustomerId&#39;;
+    constructor(readonly customerId: string) {}
+  }
+
+  export class SetDate {
+    static readonly type = &#39;[CustomerRequestFormNgxs] SetDate&#39;;
+    constructor(readonly date: Date) {}
+  }
+
+  export class SetMessage {
+    static readonly type = &#39;[CustomerRequestFormNgxs] SetMessage&#39;;
+    constructor(readonly message: string) {}
+  }
+
+  export class Submit {
+    static readonly type = &#39;[CustomerRequestFormNgxs] Submit&#39;;
+  }
+}
+</code></pre>
+<pre><code>// app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.selectors.ts
+
+import { Selector } from &#39;@ngxs/store&#39;;
+import { CustomerRequest } from &#39;src/app/custom-validation/customer-request&#39;;
+import {
+  CustomerRequestFormNgxsState,
+  CustomerRequestFormNgxsStateModel,
+} from &#39;src/app/custom-validation/customer-request-form-ngxs/customer-request-form-ngxs.state&#39;;
+
+export class CustomerRequestFormNgxsSelectors {
+  @Selector([CustomerRequestFormNgxsState])
+  static customerRequest({
+    customerRequest,
+  }: CustomerRequestFormNgxsStateModel): CustomerRequest {
+    return customerRequest;
+  }
+
+  @Selector([CustomerRequestFormNgxsState])
+  static loading({ loading }: CustomerRequestFormNgxsStateModel): boolean {
+    return loading;
+  }
+}
+</code></pre>
+</div>
+
+<div class="form-example">
+    <app-customer-request-form-ngxs></app-customer-request-form-ngxs>
+</div>
+
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/base16/tomorrow-night.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script> 
+<script>hljs.highlightAll();</script>
+  <script src="runtime.541f3d1e6e232c268054.js" defer></script><script src="polyfills.1fa1067f992fab15415f.js" defer></script><script src="main.a7100bb36bbbe10fc4af.js" defer></script>
+
+</body></html>

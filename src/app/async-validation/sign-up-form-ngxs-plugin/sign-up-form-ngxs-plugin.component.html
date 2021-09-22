@@ -1,0 +1,59 @@
+<h1>Sign Up Form (NGXS with form-plugin)</h1>
+
+<mat-card>
+  <form
+    ngxsForm="signUpFormNgxsPlugin.signUpForm"
+    [formGroup]="signUpForm"
+    (ngSubmit)="submit()"
+  >
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput name="username" formControlName="username" />
+      <mat-spinner
+        matSuffix
+        [diameter]="18"
+        *ngIf="username?.pending"
+      ></mat-spinner>
+      <mat-error *ngIf="username?.errors?.required"
+        >You must enter a value</mat-error
+      >
+      <mat-error *ngIf="username?.errors?.uniqueUsername"
+        >The username has already been taken</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="password?.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="(loading$ | async) || !signUpForm.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>User (JSON)</h2>
+
+<pre
+  >{{ user$ | async | json }}
+</pre>
+
+<h2>Form state (JSON)</h2>
+
+<pre
+  >{{ signUpFormState$ | async | json }}
+</pre>

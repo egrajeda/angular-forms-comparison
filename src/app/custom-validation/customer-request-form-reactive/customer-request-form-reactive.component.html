@@ -1,0 +1,57 @@
+<h1>Customer Request (reactive)</h1>
+
+<mat-card>
+  <form [formGroup]="customerRequestForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Customer ID</mat-label>
+      <input matInput name="customerId" formControlName="customerId" />
+      <mat-error *ngIf="customerId?.errors?.required"
+        >You must enter a value</mat-error
+      >
+      <mat-error *ngIf="customerId?.errors?.validCustomerId"
+        >The ID must start with two uppercase letters followed by four
+        numbers</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input
+        matInput
+        name="date"
+        formControlName="date"
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="date?.errors?.required"
+        >You must enter a value</mat-error
+      >
+      <mat-error *ngIf="date?.errors?.notInYear"
+        >The date cannot be in 2020</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <textarea matInput name="message" formControlName="message"></textarea>
+      <mat-error *ngIf="message?.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="loading || !customerRequestForm.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>Customer Request (JSON)</h2>
+
+<pre
+  >{{ customerRequestForm.value | json }}
+</pre>

@@ -1,0 +1,71 @@
+<h1>Profile Form (template-based)</h1>
+
+<mat-card>
+  <form (ngSubmit)="submit()" #profileForm="ngForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        required
+        name="name"
+        [(ngModel)]="profile.name"
+        #name="ngModel"
+      />
+      <mat-error *ngIf="name.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <div>
+      <mat-slide-toggle name="wantsPet" [(ngModel)]="profile.wantsPet"
+        >I would like to adopt a new pet</mat-slide-toggle
+      >
+    </div>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input
+        matInput
+        [required]="profile.wantsPet"
+        name="address"
+        [(ngModel)]="profile.address"
+        #address="ngModel"
+      />
+      <mat-error *ngIf="address.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <div>
+      <mat-slide-toggle name="hasPet" [(ngModel)]="hasPet"
+        >I currently have a pet</mat-slide-toggle
+      >
+    </div>
+    <mat-form-field *ngIf="hasPet">
+      <mat-label>Pet name</mat-label>
+      <input
+        matInput
+        required
+        name="petName"
+        [(ngModel)]="profile.petName"
+        #petName="ngModel"
+      />
+      <mat-error *ngIf="petName.errors?.required"
+        >You must enter a value</mat-error
+      >
+    </mat-form-field>
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="loading || !profileForm.form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>
+
+<h2>Profile (JSON)</h2>
+
+<pre
+  >{{ profile | json }}
+</pre>

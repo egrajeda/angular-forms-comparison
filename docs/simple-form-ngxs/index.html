@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Comparison of Angular Forms approaches</title>
+
+    </head><body class="mat-typography">
+    <base href="/angular-forms-comparison/">
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style type="text/css">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+    <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v103/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+    <link href="styles.css" rel="stylesheet">
+  <style>.mat-typography{font:400 14px/20px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal;}body,html{height:100%;}body{background-color:#fafafa;font-family:Roboto,Helvetica Neue,sans-serif;}</style><link rel="stylesheet" href="styles.725a1c956ddc1dd3f1dd.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.725a1c956ddc1dd3f1dd.css"></noscript>
+  
+    
+<div class="form-code">
+    <div class="reference">
+        
+        
+        <a href="https://github.com/egrajeda/angular-forms-comparison/tree/master/src/app/simple-form/user-form-ngxs">View Source on Github</a>
+        
+    </div>
+
+    
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Use the [ngModel] attribute for one-way binding.</li>
+            <li>Use the (ngModelChange) attribute to update the state.</li>
+            <li>Access each field validation errors through ngModel.</li>
+            <li>Access the form validation state through ngForm.</li>
+        </ol>
+    </p>
+</div>
+
+<pre><code>// app/simple-form/user.ts
+
+export interface User {
+  id: number;
+  name: string;
+  birthdate: Date;
+  favoriteColor?: string;
+}
+</code></pre>
+<pre><code>&lt;!-- app/simple-form/user-form-ngxs/user-form-ngxs.component.html --&gt;
+
+&lt;h1&gt;Simple Form (NGXS)&lt;/h1&gt;
+
+&lt;mat-card&gt;
+  &lt;form (ngSubmit)=&quot;submit()&quot; #userForm=&quot;ngForm&quot;&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Name&lt;/mat-label&gt;
+      &lt;input
+        matInput
+        required
+        name=&quot;name&quot;
+        [ngModel]=&quot;(user$ | async)?.name&quot;
+        (ngModelChange)=&quot;setName($event)&quot;
+        #name=&quot;ngModel&quot;
+      /&gt;
+      &lt;mat-error *ngIf=&quot;name.invalid&quot;&gt;You must enter a value&lt;/mat-error&gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Birth date&lt;/mat-label&gt;
+      &lt;input
+        matInput
+        required
+        name=&quot;birthdate&quot;
+        [matDatepicker]=&quot;picker&quot;
+        [ngModel]=&quot;(user$ | async)?.birthdate&quot;
+        (ngModelChange)=&quot;setBirthdate($event)&quot;
+        #birthdate=&quot;ngModel&quot;
+      /&gt;
+      &lt;mat-datepicker-toggle matSuffix [for]=&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+      &lt;mat-datepicker #picker&gt;&lt;/mat-datepicker&gt;
+      &lt;mat-error *ngIf=&quot;birthdate.invalid&quot;&gt;You must enter a value&lt;/mat-error&gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;Favorite color&lt;/mat-label&gt;
+      &lt;mat-select
+        name=&quot;favoriteColor&quot;
+        [ngModel]=&quot;(user$ | async)?.favoriteColor&quot;
+        (ngModelChange)=&quot;setFavoriteColor($event)&quot;
+      &gt;
+        &lt;mat-option *ngFor=&quot;let color of colors&quot; [value]=&quot;color&quot;&gt;{{
+          color
+        }}&lt;/mat-option&gt;
+      &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+    &lt;div class=&quot;form-buttons&quot;&gt;
+      &lt;button
+        mat-raised-button
+        type=&quot;submit&quot;
+        color=&quot;primary&quot;
+        [disabled]=&quot;(loading$ | async) || !userForm.form.valid&quot;
+      &gt;
+        Submit
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/mat-card&gt;
+
+&lt;h2&gt;User (JSON)&lt;/h2&gt;
+
+&lt;pre
+  &gt;{{ user$ | async | json }}
+&lt;/pre&gt;
+</code></pre>
+<pre><code>// app/simple-form/user-form-ngxs/user-form-ngxs.component.ts
+
+import { Component } from &#39;@angular/core&#39;;
+import { MatSnackBar } from &#39;@angular/material/snack-bar&#39;;
+import { Select, Store } from &#39;@ngxs/store&#39;;
+import { Observable } from &#39;rxjs&#39;;
+import { withLatestFrom } from &#39;rxjs/operators&#39;;
+import { User } from &#39;src/app/simple-form/user&#39;;
+import { UserFormNgxs } from &#39;src/app/simple-form/user-form-ngxs/user-form-ngxs.actions&#39;;
+import { UserFormNgxsSelectors } from &#39;src/app/simple-form/user-form-ngxs/user-form-ngxs.selectors&#39;;
+
+@Component({
+  selector: &#39;app-user-form-ngxs&#39;,
+  templateUrl: &#39;./user-form-ngxs.component.html&#39;,
+})
+export class UserFormNgxsComponent {
+  readonly colors = [&#39;Red&#39;, &#39;Green&#39;, &#39;Blue&#39;];
+
+  @Select(UserFormNgxsSelectors.user)
+  user$!: Observable&lt;User&gt;;
+
+  @Select(UserFormNgxsSelectors.loading)
+  loading$!: Observable&lt;boolean&gt;;
+
+  constructor(
+    private readonly store: Store,
+    private readonly snackBar: MatSnackBar
+  ) {}
+
+  setName(name: string) {
+    this.store.dispatch(new UserFormNgxs.SetName(name));
+  }
+
+  setBirthdate(birthdate: Date) {
+    this.store.dispatch(new UserFormNgxs.SetBirthdate(birthdate));
+  }
+
+  setFavoriteColor(favoriteColor: string) {
+    this.store.dispatch(new UserFormNgxs.SetFavoriteColor(favoriteColor));
+  }
+
+  submit(): void {
+    this.store
+      .dispatch(new UserFormNgxs.Submit())
+      .pipe(withLatestFrom(this.user$))
+      .subscribe(([, { id }]) =&gt; {
+        this.snackBar.open(`User saved with ID #${id}`, &#39;Close&#39;);
+      });
+  }
+}
+</code></pre>
+<pre><code>// app/simple-form/user.service.ts
+
+import { Injectable } from &#39;@angular/core&#39;;
+import { Observable, of } from &#39;rxjs&#39;;
+import { delay } from &#39;rxjs/operators&#39;;
+import { User } from &#39;src/app/simple-form/user&#39;;
+
+export interface UserSaveResponse {
+  id: number;
+}
+
+@Injectable({
+  providedIn: &#39;root&#39;,
+})
+export class UserService {
+  save(user: User): Observable&lt;UserSaveResponse&gt; {
+    console.log(&#39;Save:&#39;, user);
+    return of({
+      id: 1,
+    }).pipe(delay(1000));
+  }
+}
+</code></pre>
+<pre><code>// app/simple-form/user-form-ngxs/user-form-ngxs.state.ts
+
+import { Injectable } from &#39;@angular/core&#39;;
+import { Action, State, StateContext } from &#39;@ngxs/store&#39;;
+import { finalize, tap } from &#39;rxjs/operators&#39;;
+import { User } from &#39;src/app/simple-form/user&#39;;
+import { UserFormNgxs } from &#39;src/app/simple-form/user-form-ngxs/user-form-ngxs.actions&#39;;
+import { UserService } from &#39;src/app/simple-form/user.service&#39;;
+
+export interface UserFormNgxsStateModel {
+  user: User;
+  loading: boolean;
+}
+
+@State&lt;UserFormNgxsStateModel&gt;({
+  name: &#39;userFormNgxs&#39;,
+  defaults: {
+    user: {
+      id: 0,
+      name: &#39;&#39;,
+      birthdate: new Date(),
+      favoriteColor: &#39;&#39;,
+    },
+    loading: false,
+  },
+})
+@Injectable()
+export class UserFormNgxsState {
+  constructor(private readonly userService: UserService) {}
+
+  @Action(UserFormNgxs.SetName)
+  setName(
+    context: StateContext&lt;UserFormNgxsStateModel&gt;,
+    { name }: UserFormNgxs.SetName
+  ) {
+    const state = context.getState();
+    context.patchState({
+      user: { ...state.user, name },
+    });
+  }
+
+  @Action(UserFormNgxs.SetBirthdate)
+  setBirthdate(
+    context: StateContext&lt;UserFormNgxsStateModel&gt;,
+    { birthdate }: UserFormNgxs.SetBirthdate
+  ) {
+    const state = context.getState();
+    context.patchState({
+      user: { ...state.user, birthdate },
+    });
+  }
+
+  @Action(UserFormNgxs.SetFavoriteColor)
+  setFavoriteColor(
+    context: StateContext&lt;UserFormNgxsStateModel&gt;,
+    { favoriteColor }: UserFormNgxs.SetFavoriteColor
+  ) {
+    const state = context.getState();
+    context.patchState({
+      user: { ...state.user, favoriteColor },
+    });
+  }
+
+  @Action(UserFormNgxs.Submit)
+  submit(context: StateContext&lt;UserFormNgxsStateModel&gt;) {
+    const state = context.getState();
+    context.patchState({
+      loading: true,
+    });
+    return this.userService.save(state.user).pipe(
+      tap(({ id }) =&gt;
+        context.patchState({
+          user: { ...state.user, id },
+        })
+      ),
+      finalize(() =&gt;
+        context.patchState({
+          loading: false,
+        })
+      )
+    );
+  }
+}
+</code></pre>
+<pre><code>// app/simple-form/user-form-ngxs/user-form-ngxs.actions.ts
+
+export namespace UserFormNgxs {
+  export class SetName {
+    static readonly type = &#39;[UserFormNgxs] SetName&#39;;
+    constructor(readonly name: string) {}
+  }
+
+  export class SetBirthdate {
+    static readonly type = &#39;[UserFormNgxs] SetBirthdate&#39;;
+    constructor(readonly birthdate: Date) {}
+  }
+
+  export class SetFavoriteColor {
+    static readonly type = &#39;[UserFormNgxs] SetFavoriteColor&#39;;
+    constructor(readonly favoriteColor: string) {}
+  }
+
+  export class Submit {
+    static readonly type = &#39;[UserFormNgxs] Submit&#39;;
+  }
+}
+</code></pre>
+<pre><code>// app/simple-form/user-form-ngxs/user-form-ngxs.selectors.ts
+
+import { Selector } from &#39;@ngxs/store&#39;;
+import { User } from &#39;src/app/simple-form/user&#39;;
+import {
+  UserFormNgxsState,
+  UserFormNgxsStateModel,
+} from &#39;src/app/simple-form/user-form-ngxs/user-form-ngxs.state&#39;;
+
+export class UserFormNgxsSelectors {
+  @Selector([UserFormNgxsState])
+  static user({ user }: UserFormNgxsStateModel): User {
+    return user;
+  }
+
+  @Selector([UserFormNgxsState])
+  static loading({ loading }: UserFormNgxsStateModel): boolean {
+    return loading;
+  }
+}
+</code></pre>
+</div>
+
+<div class="form-example">
+    <app-user-form-ngxs></app-user-form-ngxs>
+</div>
+
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/base16/tomorrow-night.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script> 
+<script>hljs.highlightAll();</script>
+  <script src="runtime.541f3d1e6e232c268054.js" defer></script><script src="polyfills.1fa1067f992fab15415f.js" defer></script><script src="main.a7100bb36bbbe10fc4af.js" defer></script>
+
+</body></html>

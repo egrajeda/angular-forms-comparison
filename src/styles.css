@@ -1,0 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-card {
+  margin: 0 0 20px 0;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: right;
+}
+
+.form-buttons button {
+  margin-left: 10px;
+}
