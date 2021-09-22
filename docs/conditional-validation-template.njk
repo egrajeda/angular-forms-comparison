@@ -1,0 +1,27 @@
+---
+layout: example.njk
+example: <app-profile-form-template></app-profile-form-template>
+documentation: https://angular.io/guide/form-validation
+github: conditional-validation/profile-form-template
+---
+
+<div class="preface">
+    <h1>Highlights</h1>
+    <p>
+        <ol>
+            <li>Pass a boolean expression to the validator to make it apply or not.</li>
+            <li>
+                Fields hidden by <code>*ngIf</code> will automatically recompute the validity of the form when shown.
+            </li>
+            <li>
+                Clear hidden fields before submit. You can also clear them when they're hidden, but if the user decides
+                to show them again, they will loose lost anything they had input.
+            </li>
+        </ol>
+    </p>
+</div>
+
+{% src 'app/conditional-validation/profile.ts' %}
+{% src 'app/conditional-validation/profile-form-template/profile-form-template.component.html' %}
+{% src 'app/conditional-validation/profile-form-template/profile-form-template.component.ts' %}
+{% src 'app/conditional-validation/profile.service.ts' %}

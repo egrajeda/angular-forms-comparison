@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -38,6 +39,7 @@ import { SignUpFormNgxsComponent } from './async-validation/sign-up-form-ngxs/si
 import { SignUpFormNgxsState } from './async-validation/sign-up-form-ngxs/sign-up-form-ngxs.state';
 import { SignUpFormNgxsPluginState } from './async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.state';
 import { SignUpFormNgxsPluginComponent } from './async-validation/sign-up-form-ngxs-plugin/sign-up-form-ngxs-plugin.component';
+import { ProfileFormTemplateComponent } from './conditional-validation/profile-form-template/profile-form-template.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { SignUpFormNgxsPluginComponent } from './async-validation/sign-up-form-n
     SignUpFormReactiveComponent,
     SignUpFormNgxsComponent,
     SignUpFormNgxsPluginComponent,
+    ProfileFormTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { SignUpFormNgxsPluginComponent } from './async-validation/sign-up-form-n
     MatNativeDateModule,
     MatProgressSpinnerModule,
     MatSelectModule,
+    MatSlideToggleModule,
     MatSnackBarModule,
     NgxsModule.forRoot([
       UserFormNgxsState,
@@ -187,6 +191,16 @@ export class AppModule implements DoBootstrap {
     customElements.define(
       'app-sign-up-form-ngxs-plugin',
       signUpFormNgxsPluginElement
+    );
+
+    // conditional validation
+    const profileFormTemplateElement = createCustomElement(
+      ProfileFormTemplateComponent,
+      { injector }
+    );
+    customElements.define(
+      'app-profile-form-template',
+      profileFormTemplateElement
     );
   }
 
